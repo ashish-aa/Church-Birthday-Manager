@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Record Options</title>
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+</head>
+<body>
+<div class="main-container">
+    <h2>Choose an Option</h2>
+    <div class="container">
+        <div class="option-card" onclick="redirectTo('/addBirthdayRecord')">
+            <h3>Birthday Record</h3>
+            <p>Click here to Add a Birthday record.</p>
+        </div>
+        <div class="option-card" onclick="redirectTo('/addAnniversaryRecord')">
+            <h3>Anniversary Record</h3>
+            <p>Click here to Add an Anniversary record.</p>
+        </div>
+    </div>
+</div>
+<script>
+    function redirectTo(path) {
+        window.location.href = path;
+    }
+</script>
+</body>
+</html>

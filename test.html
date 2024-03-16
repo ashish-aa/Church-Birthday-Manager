@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <form action="/record-saved" method="post">
+       <%-include('includes/navigation.ejs')%>
+
+        <div class="content">
+            <h2>Choose the Record type</h2>
+            <fieldset>
+                <label><input type="radio" name="eventType" value="Birthday" onclick="showFields(this)">Birthday</label>
+                <label><input type="radio" name="eventType" value="Anniversary" onclick="showFields(this)">Anniversary</label>
+            </fieldset>
+        </div>
+
+        <div id="birthdayFields" class="dynamic-content" style="display: none;">
+            <label>First Name: <input type="text" required name="firstName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Last Name: <input type="text" required name="lastName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Date: <input type="date" required name="eventDate" ></label>
+        </div>
+
+        <div id="anniversaryFields" class="dynamic-content" style="display: none;">
+            <label>Husband's Name: <input type="text" required name="husbandsName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Wife's Name: <input type="text" required name="wifesName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Surname: <input type="text" required name="surname" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Date: <input type="date" required name="eventDate"></label>
+        </div>
+
+        <input type="hidden" id="selectedEventType" name="selectedEventType">
+
+        <div class="submitBtn">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script>
+        function showFields(selectedRadioButton){
+            const birthdayFields = document.getElementById('birthdayFields');
+            const anniversaryFields = document.getElementById('anniversaryFields');
+
+            if (selectedRadioButton.value === 'Birthday') {
+                birthdayFields.style.display = 'block';
+                anniversaryFields.style.display = 'none';
+            } else if (selectedRadioButton.value === 'Anniversary') {
+                birthdayFields.style.display = 'none';
+                anniversaryFields.style.display = 'block';
+            }
+
+            document.getElementById('selectedEventType').value = selectedRadioButton.value;
+        }
+
+    
+    </script>
+
+</body>
+</html>

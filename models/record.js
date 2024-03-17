@@ -17,18 +17,18 @@ class BirthdayRecord {
             .then(existingRecord => {
                 if (existingRecord) {
                     // If the record already exists, show a popup message
-                   return {exist:true};
+                   return Promise.reject(new Error("User Already Exists!"));
                 } else {
                     // If the record does not exist, insert it into the database
                     return db.collection('Birthday')
                         .insertOne(this)
                         .then(result => {
                             console.log(result);
-                            return {exist:false,success:true};
+                            
                         })
                         .catch(err => {
                             console.log(err);
-                            return { exist: false, success: false, error: err };
+                            
                         });
                 }
             })

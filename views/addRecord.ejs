@@ -6,32 +6,6 @@
     <title><%=pageTitle%></title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<script>
-    document.querySelector('form').addEventListener('submit',function(event){
-        event.preventDefault();
-        const formData= new FormData(event.target);
-        const formAction = event.target.getAttribute('action');
-
-        fetch(formAction,{
-            method : 'POST',
-            body :formData
-        }).then(response=>response.json())
-        .then(data=>{
-            if(data.message==="exits"){
-                alert('Record already exists');
-            }
-            else if(data.message==="Record added successfully"){
-                alert('Record added successfully');
-            }
-            else{
-                alert('An error occurred: ' + data.error);
-            }
-        })
-        .catch(error => console.error('Error:', error));
-        
-    })
-</script>
-
 <body>
     <form action="<%if(path== '/addBirthdayRecord'){%>addBirthday<%}else{%>addAnniversary<%}%>" method="post">
        <!-- Ignoring the include mentioned -->

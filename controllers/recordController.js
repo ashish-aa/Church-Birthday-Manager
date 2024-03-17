@@ -24,21 +24,16 @@ exports.postAddBirthday= (req,res,next)=>{
     const bRecord = new BirthdayRecord(firstName,lastName,eventDate,null);
     bRecord.save()
     .then(result=>{
-        if(result.exist){
-            res.status(200).json({message:'exists'})
-        }else if(result.success){
-            res.status(200).json({ message: 'Record added successfully' });
-            console.log("New Birthday Record Added Successfully.");
-            console.log("Redirecting..");
-            res.redirect('/');
-        }else{
-            res.status(500).json({ message: 'Error adding record', error: result.error });
-        }
-        // console.log(result);
-        // console.log("New Birthday Record Added Successfully.");
-        // console.log("Redirecting..");
-        // res.redirect('/');
-    }).catch(err=>console.log(err));
+
+        console.log(result);
+        console.log("New Birthday Record Added Successfully.");
+        console.log("Redirecting..");
+        res.redirect('/');
+       
+    }).catch(err=>{
+        console.log(err);
+        res.redirect('/index');
+    });
 
 
 }

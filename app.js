@@ -16,6 +16,7 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname,'public')));
 
 //middlware to store flash message in session
+app.use(session({secret:'my_secret',resave:false,saveUninitialized:true}))
 app.use(flash());
 // app.use((req,res,next)=>{
 //     req.flash = (type,message)=>{
@@ -32,7 +33,7 @@ app.use(flash());
 //     next();
 // });
 
-app.use(session({secret:'my_secret',resave:false,saveUninitialized:true}))
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());

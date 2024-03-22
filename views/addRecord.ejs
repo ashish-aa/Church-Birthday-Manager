@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=pageTitle%></title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<script>
+        
+
+</script>
+<body>
+    
+    <form id="create-form" action="<%if(path== '/addBirthdayRecord'){%>addBirthday<%}else{%>addAnniversary<%}%>" method="post">
+       <!-- Ignoring the include mentioned -->
+       <% if(path==='/addBirthdayRecord'){%>
+        <div id="birthdayFields" class="dynamic-content">
+            <label>First Name: <input type="text" required name="firstName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Last Name: <input type="text" required name="lastName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Date: <input type="date" required name="eventDate" ></label>
+        </div>
+        <%} else {%>
+        <div id="anniversaryFields" class="dynamic-content">
+            <label>Husband's Name: <input type="text" required  name="hName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Wife's Name: <input type="text" required name="wName" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Surname: <input type="text" name="surname" onkeydown="return /[a-zA-Z]/i.test(event.key)"></label>
+            <label>Date: <input type="date" required name="eventDate"></label>
+        </div>
+        <%}%>
+
+        <div class="submitBtn">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

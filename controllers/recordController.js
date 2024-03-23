@@ -1,3 +1,5 @@
+
+const { render } = require('ejs');
 const mongodb = require('mongodb');
 const BirthdayRecord = require('../models/record').BirthdayRecord;
 const AnniversaryRecord = require('../models/record').AnniversaryRecord;
@@ -27,11 +29,45 @@ exports.getError = (req,res,next)=>{
 
 }
 
+exports.getEventsOftheWeek = (req,res,next)=>{
+    const today = new Date();
+    const currentWeekStart = new Date(today);
+    currentWeekStart.setDate(today.getDate()-today.getDay());
+    const currentWeekEnd = new Date();
+    currentWeekEnd.setDate(today.getDate()-today.getDay()+7);
+    const formatDate=(birthdayString)=>{
+        const date = new Date(birthdayString);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const monthName = months[date.getMonth()];
+        const day = ('0' + date.getDate()).slice(-2);
+        return monthName + ' ' + day;
+      }
+    BirthdayRecord.filterByDate(currentWeekStart,currentWeekEnd).then(results=>{
+        AnniversaryRecord.filterByDate(currentWeekStart,currentWeekEnd).then(anRes=>{
+
+            res.render('recordList',
+            {pageTitle:"Events",
+            path:'/showRecords',
+            records:results,
+            formatDate:formatDate,
+            anRecords:anRes
+        });
+
+        })
+
+      
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
+    
+}
 
 exports.postAddBirthday= (req,res,next)=>{
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const eventDate = req.body.eventDate;
+    const eventDate = new Date(req.body.eventDate);
     const bRecord = new BirthdayRecord(firstName,lastName,eventDate,null);
     bRecord.save()
     .then(result=>{
@@ -50,11 +86,12 @@ exports.postAddBirthday= (req,res,next)=>{
 
 }
 
+
 exports.postAddAnniversary = (req,res,next)=>{
     const hname = req.body.hName;
     const wname = req.body.wName;
     const surname = req.body.surname;
-    const eventDate = req.body.eventDate;
+    const eventDate = new Date(req.body.eventDate);
     const aRecord = new AnniversaryRecord(hname,wname,surname,eventDate,null);
     aRecord.save()
     .then(result=>{

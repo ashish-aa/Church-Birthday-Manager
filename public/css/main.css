@@ -1,9 +1,10 @@
 /* main.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change font family */
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f6d365, #fda085);
+    background: linear-gradient(135deg, #a0c4ff, #d9eaff); /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +13,7 @@ body {
 
 form {
     padding: 40px;
-    background-color: #fff;
+    background-color: #eaf0ff; /* Set background color for form */
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     max-width: 600px;
@@ -22,61 +23,7 @@ label {
     display: block;
     margin-bottom: 20px;
     font-size: 18px; /* Increased font size */
-}
-
-input[type="text"],
-input[type="date"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px; /* Increased font size */
-}
-
-.submitBtn {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.submitBtn button {
-    padding: 12px 24px; /* Increased padding */
-    font-size: 18px; /* Increased font size */
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submitBtn button:hover {
-    background-color: #45a049;
-}
-
-/* main.css */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f6d365, #fda085);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-form {
-    padding: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-}
-
-label {
-    display: block;
-    margin-bottom: 20px;
-    font-size: 18px; /* Increased font size */
+    color: #1d1a1a; /* Dark text color */
 }
 
 input[type="text"],

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title><%=pageTitle%></title>
+ <link rel="stylesheet" href="/css/list.css"> 
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+ 
+</head>
+<body>
+    <h1>Birthdays & Anniversaries</h1>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Birthdays</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birth Date</th>
+                    </tr>
+                </thead>
+                <%if(records.length>0){%>
+                <tbody>
+                    <%for(let record of records){%>
+                    <tr>
+                        <td><%=record.fname%> <%=record.lname%></td>
+                        <td><%=formatDate(record.date)%></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+                <%}%>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Anniversaries</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Anniversary Date</th>
+                    </tr>
+                </thead>
+                <%if(anRecords.length>0){%>
+                <tbody>
+                    <%for(let anRecord of anRecords){%>
+                    <tr>
+                        <td><%=anRecord.hname%> & <%=anRecord.wname%> <%=anRecord.surname%></td>
+                        <td><%=formatDate(anRecord.date)%></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+                <%}%>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,12 +1,14 @@
+/* index.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change font family */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(135deg, #f6d365, #fda085); /* Gradient background */
+    background: linear-gradient(135deg, #a0c4ff, #d9eaff); /* Gradient background */
 }
 
 .main-container {
@@ -25,11 +27,11 @@ body {
     flex-direction: column; /* Arrange children vertically */
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    width: 300px;
-    height: 200px;
+    width: 300px; /* Adjusted back to original width */
+    height: 200px; /* Adjusted back to original height */
     margin: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #eaf0ff; /* Set background color for option cards */
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Added shadow */
     transition: transform 0.3s ease-in-out;
@@ -58,7 +60,6 @@ h3 {
 p {
     color: #241100; /* Slightly darker text color */
 }
-/* styles.css */
 
 /* Modal container */
 /* Updated styles for pop-up message */

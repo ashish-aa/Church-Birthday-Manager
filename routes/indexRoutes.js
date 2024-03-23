@@ -11,6 +11,7 @@ router.get('/addAnniversaryRecord',recordController.getAddAnniversary);
 router.post('/addBirthday',recordController.postAddBirthday);
 router.post('/addAnniversary',recordController.postAddAnniversary);
 router.get('/error/:errTyp',recordController.getError);
+router.get('/showRecords',recordController.getEventsOftheWeek);
 
 
 // router.get('/add-record',(req,res)=>{

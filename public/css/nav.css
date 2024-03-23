@@ -1,101 +1,42 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
 .sidebar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
+    width: 200px; /* Adjust width as needed */
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    position: fixed; /* Keep the sidebar fixed on the page */
     top: 0;
     left: 0;
-    background-color: #111;
-    padding-top: 20px;
-    color: white;
-    padding: 0 1.5rem;
-    z-index: 1; 
+    height: 100%;
+    overflow-y: auto; /* Add scrollbar if content overflows */
 }
 
 .main-header__nav {
-    height: 100%;
-    display: flex;
+    margin-top: 20px; /* Add space above the navigation */
 }
 
 .main-header__item-list {
-    list-style: none;
-    margin: 0;
+    list-style-type: none; /* Remove default list styling */
     padding: 0;
-    display: flex;
 }
 
 .main-header__item {
-    margin: 0 1rem;
-    padding: 0;
+    margin-bottom: 10px; /* Add space between items */
 }
 
 .main-header__item a {
-    text-decoration: none;
-    color: white;
-    text-align: center;
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Default link color */
+    display: block; /* Make links block elements for full width */
+    padding: 10px; /* Add padding to links */
+    border-radius: 5px; /* Add rounded corners */
 }
 
-.main-header__item a:hover,
-.main-header__item a:active,
 .main-header__item a.active {
-    color: #3bff7c;
+    background-color: #007bff; /* Active link background color */
+    color: #fff; /* Active link text color */
 }
 
-.content {
-    margin-left: 250px;
-    padding: 16px;
-    z-index: 2;
-}
-
-.submitBtn{
-    text-align: center;
-    position: absolute;
-    top: 450px;
-    left: 50%;
-   
-    
-    
-}
-
-
-h2 {
-    color: #333; /* Adjust the color as needed */
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    padding: 5px;
-}
-
-#birthdayFields,
-#anniversaryFields {
-    margin-top: 20px;
-}
-
-
-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.dynamic-content {
-     margin-left: 270px;
-
-}
-
-button:hover {
-    background-color: #45a049;
+.main-header__item a:hover {
+    background-color: #0056b3; /* Hover background color */
+    color: #fff; /* Hover text color */
 }

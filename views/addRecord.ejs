@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=pageTitle%></title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/nav.css">
+
 </head>
 <script>
         
 
 </script>
 <body>
+    <%- include('./includes/navigation.ejs') %>
     
     <form id="create-form" action="<%if(path== '/addBirthdayRecord'){%>addBirthday<%}else{%>addAnniversary<%}%>" method="post">
        <!-- Ignoring the include mentioned -->

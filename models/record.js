@@ -14,17 +14,24 @@ class BirthdayRecord {
         const db = getDb();
 
         return db.collection('Birthday')
-        .find({
-            $expr: {
-                $and: [
-                  { $gte: [{ $month: "$date" }, { $month: startDate } ] }, // Check if the month is greater than or equal to the month of the start of the current week
-                  { $lte: [{ $month: "$date" }, { $month: endDate } ] }, // Check if the month is less than or equal to the month of the end of the current week
-                  { $gte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: startDate } ] }, // Check if the day is greater than or equal to the day of the start of the current week
-                  { $lte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: endDate } ] } // Check if the day is less than or equal to the day of the end of the current week
+        .find(
+            {
+                $or: [
+                    {
+                        $and: [
+                            { $expr: { $eq: [{ $month: "$date" }, { $month: startDate }] } },
+                            { $expr: { $gte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: startDate }] } }
+                        ]
+                    },
+                    {
+                        $and: [
+                            { $expr: { $eq: [{ $month: "$date" }, { $month: endDate }] } },
+                            { $expr: { $lte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: endDate }] } }
+                        ]
+                    }
                 ]
-              }
-
-        }).toArray()
+            }
+        ).toArray()
         .then(records => {
             console.log('Birthdays in the current week:', records);
             return records;
@@ -82,15 +89,20 @@ class AnniversaryRecord{
 
         return db.collection('Anniversary')
         .find({
-            $expr: {
-                $and: [
-                  { $gte: [{ $month: "$date" }, { $month: startDate } ] }, // Check if the month is greater than or equal to the month of the start of the current week
-                  { $lte: [{ $month: "$date" }, { $month: endDate } ] }, // Check if the month is less than or equal to the month of the end of the current week
-                  { $gte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: startDate } ] }, // Check if the day is greater than or equal to the day of the start of the current week
-                  { $lte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: endDate } ] } // Check if the day is less than or equal to the day of the end of the current week
-                ]
-              }
-
+            $or: [
+                {
+                    $and: [
+                        { $expr: { $eq: [{ $month: "$date" }, { $month: startDate }] } },
+                        { $expr: { $gte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: startDate }] } }
+                    ]
+                },
+                {
+                    $and: [
+                        { $expr: { $eq: [{ $month: "$date" }, { $month: endDate }] } },
+                        { $expr: { $lte: [{ $dayOfMonth: "$date" }, { $dayOfMonth: endDate }] } }
+                    ]
+                }
+            ]
         }).toArray()
         .then(records => {
             console.log('Anniversaries in the current week:', records);

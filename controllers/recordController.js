@@ -34,7 +34,7 @@ exports.getEventsOftheWeek = (req,res,next)=>{
     const currentWeekStart = new Date(today);
     currentWeekStart.setDate(today.getDate()-today.getDay());
     const currentWeekEnd = new Date();
-    currentWeekEnd.setDate(today.getDate()-today.getDay()+7);
+    currentWeekEnd.setDate(today.getDate()-today.getDay()+6);
     const formatDate=(birthdayString)=>{
         const date = new Date(birthdayString);
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -43,8 +43,9 @@ exports.getEventsOftheWeek = (req,res,next)=>{
         return monthName + ' ' + day;
       }
     BirthdayRecord.filterByDate(currentWeekStart,currentWeekEnd).then(results=>{
+        results.sort((a, b) => new Date(a.date) - new Date(b.date));
         AnniversaryRecord.filterByDate(currentWeekStart,currentWeekEnd).then(anRes=>{
-
+            anRes.sort((a, b) => new Date(a.date) - new Date(b.date));
             res.render('recordList',
             {pageTitle:"Events",
             path:'/showRecords',

@@ -1,6 +1,6 @@
 # Church Birthday Manager
 
-Welcome to Church Birthday Manager! This project is a digital solution developed specifically for managing and tracking birthday and anniversary records within the congregation of Christian Fellowship Church (CFC).
+Welcome to Church Birthday Manager! This project is a digital solution developed specifically for managing and tracking birthday and anniversary records within the congregation of CFC Church.
 
 ## Features
 

@@ -35,7 +35,7 @@ Welcome to Church Birthday Manager! This project is a digital solution developed
 
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS, JavaScript, EJS
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Other Tools**: Bootstrap (for styling)

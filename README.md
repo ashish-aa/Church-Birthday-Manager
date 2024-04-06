@@ -23,20 +23,15 @@ Welcome to Church Birthday Manager! This project is a digital solution developed
     npm install
     ```
 
-3. Set up the environment variables:
+`
 
-    ```bash
-    # Create a .env file based on .env.example and fill in the required values
-    cp .env.example .env
-    ```
-
-4. Start the server:
+3. Start the server:
 
     ```bash
     npm start
     ```
 
-5. Access the application at `http://localhost:3000` in your web browser.
+4. Access the application at `http://localhost:3000` in your web browser.
 
 ## Technologies Used
 
@@ -54,11 +49,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 3. Commit your changes (`git commit -am 'Add some feature'`).
 4. Push to the branch (`git push origin feature/YourFeature`).
 5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-For any inquiries or feedback, please contact [Your Name](mailto:your-email@example.com).
